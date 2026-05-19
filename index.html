@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cymru · País de Gales - Seleção Nacional</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #8B0A1E;
+    --red-light: #E8294A;
+    --gold: #D4AF37;
+    --gold-light: #F0D060;
+    --white: #F5F0E8;
+    --cream: #EDE8DC;
+    --black: #0A0A0A;
+    --gray: #1A1A1A;
+    --gray2: #2A2A2A;
+    --text-muted: #888;
+  }
+ 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+ 
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 999;
+    padding: 18px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8), transparent);
+    backdrop-filter: blur(2px);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 4px; color: var(--gold); text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--white); text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; opacity: .75; transition: opacity .2s, color .2s; }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+ 
+  /* ─── HERO ─── */
+  #home { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--black); }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 60%, rgba(200,16,46,.18) 0%, transparent 70%), url('https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?w=1600&q=80') center/cover no-repeat; filter: brightness(.35) saturate(1.3); }
+  .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(0,0,0,.85) 100%); }
+  .hero-content { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 0 20px; }
+  .hero-shield { width: 110px; height: 130px; background: linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 60px rgba(200,16,46,.5); animation: pulse-shield 3s ease-in-out infinite; margin-bottom: 8px; position: relative; }
+  .hero-shield::before { content: '🐉'; font-size: 52px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.5)); }
+  @keyframes pulse-shield { 0%,100% { box-shadow: 0 0 40px rgba(200,16,46,.4); transform: scale(1); } 50% { box-shadow: 0 0 80px rgba(200,16,46,.7); transform: scale(1.03); } }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); font-weight: 500; animation: fadeUp .8s .2s both; }
+  .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(72px, 14vw, 160px); line-height: .88; letter-spacing: 6px; background: linear-gradient(180deg, #fff 0%, var(--gold-light) 60%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeUp .8s .4s both; }
+  .hero-sub { font-family: 'Cinzel', serif; font-size: clamp(16px, 3vw, 26px); color: var(--cream); letter-spacing: 4px; animation: fadeUp .8s .6s both; }
+  .hero-divider { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); animation: fadeUp .8s .7s both; }
+  .hero-tagline { font-size: 14px; color: var(--text-muted); letter-spacing: 2px; max-width: 420px; line-height: 1.7; animation: fadeUp .8s .8s both; }
+  .cta-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; animation: fadeUp .8s 1s both; }
+  .btn-primary { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: #fff; border: none; padding: 16px 36px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; cursor: pointer; text-decoration: none; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); transition: all .3s; box-shadow: 0 4px 30px rgba(200,16,46,.4); }
+  .btn-primary:hover { background: linear-gradient(135deg, var(--red-light), var(--red)); box-shadow: 0 8px 40px rgba(200,16,46,.7); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--gold); border: 1px solid rgba(212,175,55,.4); padding: 15px 36px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; cursor: pointer; text-decoration: none; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); transition: all .3s; }
+  .btn-outline:hover { background: rgba(212,175,55,.1); border-color: var(--gold); box-shadow: 0 4px 20px rgba(212,175,55,.2); transform: translateY(-2px); }
+  .scroll-indicator { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; animation: bounce 2s ease-in-out infinite; opacity: .5; }
+  .scroll-indicator span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; }
+  .scroll-indicator::after { content: '↓'; font-size: 18px; }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+ 
+  /* ─── SECTIONS GENERAL ─── */
+  section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 7vw, 80px); letter-spacing: 3px; line-height: 1; color: var(--white); margin-bottom: 8px; }
+  .section-line { width: 60px; height: 2px; background: linear-gradient(90deg, var(--red), transparent); margin-bottom: 48px; }
+  .full-bleed { max-width: 100%; background: var(--gray); padding: 0; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); }
+  .full-bleed > section { max-width: 1200px; }
+ 
+  /* ─── O TIME ─── */
+  .coach-card { display: flex; gap: 32px; align-items: center; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); padding: 32px; margin-bottom: 60px; position: relative; overflow: hidden; }
+  .coach-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--red), var(--gold)); }
+  .coach-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--red); flex-shrink: 0; background: linear-gradient(135deg, var(--red-dark), var(--black)); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+  .coach-info h3 { font-family: 'Bebas Neue'; font-size: 32px; letter-spacing: 2px; color: var(--white); }
+  .coach-info .role { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; display: block; }
+  .coach-info p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 500px; }
+  .nickname-badge { display: inline-block; background: linear-gradient(135deg, var(--red), var(--red-dark)); padding: 8px 20px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 40px; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+  .players-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .player-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); overflow: hidden; position: relative; transition: transform .3s, border-color .3s, box-shadow .3s; cursor: default; }
+  .player-card:hover { transform: translateY(-6px); border-color: rgba(200,16,46,.4); box-shadow: 0 20px 50px rgba(200,16,46,.15); }
+  .player-photo { width: 100%; height: 240px; object-fit: cover; object-position: top center; background: linear-gradient(160deg, var(--gray2), var(--red-dark)); display: flex; align-items: center; justify-content: center; font-size: 80px; filter: grayscale(.3); overflow: hidden; position: relative; }
+  .player-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .4s; }
+  .player-card:hover .player-photo img { transform: scale(1.05); }
+  .player-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.8) 0%, transparent 50%); }
+  .player-num { position: absolute; top: 12px; right: 12px; font-family: 'Bebas Neue'; font-size: 48px; line-height: 1; color: rgba(255,255,255,.12); letter-spacing: 0; }
+  .player-info { padding: 20px; }
+  .player-info .pos { font-size: 9px; letter-spacing: 4px; color: var(--red-light); text-transform: uppercase; margin-bottom: 6px; display: block; }
+  .player-info h3 { font-family: 'Bebas Neue'; font-size: 28px; letter-spacing: 2px; color: var(--white); margin-bottom: 4px; }
+  .player-info .club { font-size: 12px; color: var(--text-muted); }
+  .player-stats { display: flex; gap: 24px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.06); }
+  .stat { text-align: center; }
+  .stat .val { font-family: 'Bebas Neue'; font-size: 22px; color: var(--gold); }
+  .stat .lbl { font-size: 9px; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; }
+ 
+  /* ─── HISTÓRIA ─── */
+  .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .history-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); padding: 36px; position: relative; overflow: hidden; }
+  .history-card .year { font-family: 'Bebas Neue'; font-size: 100px; color: rgba(200,16,46,.08); position: absolute; bottom: -16px; right: 16px; line-height: 1; letter-spacing: -2px; pointer-events: none; }
+  .history-card .icon { font-size: 36px; margin-bottom: 16px; display: block; }
+  .history-card h3 { font-family: 'Bebas Neue'; font-size: 28px; letter-spacing: 2px; margin-bottom: 12px; color: var(--gold); }
+  .history-card p { font-size: 14px; line-height: 1.8; color: #aaa; }
+  .timeline-moment { margin-top: 48px; padding: 36px; background: linear-gradient(135deg, rgba(200,16,46,.08), rgba(212,175,55,.03)); border: 1px solid rgba(200,16,46,.2); position: relative; }
+  .timeline-moment::before { content: '"'; font-family: 'Cinzel'; font-size: 120px; color: var(--red); opacity: .12; position: absolute; top: -20px; left: 20px; line-height: 1; }
+  .timeline-moment h3 { font-family: 'Bebas Neue'; font-size: 32px; letter-spacing: 2px; color: var(--white); margin-bottom: 12px; }
+  .timeline-moment p { font-size: 14px; line-height: 1.8; color: #aaa; }
+  .timeline-moment .tag { display: inline-block; background: var(--red); color: #fff; padding: 4px 12px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+ 
+  /* ─── COPA 2026 ─── */
+  .copa-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; }
+  .group-badge { display: flex; flex-direction: column; align-items: center; background: linear-gradient(135deg, var(--red), var(--red-dark)); padding: 24px 40px; clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .group-badge .group-letter { font-family: 'Bebas Neue'; font-size: 64px; line-height: 1; color: #fff; letter-spacing: 4px; }
+  .group-badge .group-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,.6); }
+  .stadiums-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .stadium-card { position: relative; overflow: hidden; height: 220px; cursor: default; }
+  .stadium-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.6) saturate(1.2); transition: transform .4s, filter .4s; }
+  .stadium-card:hover img { transform: scale(1.06); filter: brightness(.75) saturate(1.3); }
+  .stadium-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px 16px; background: linear-gradient(to top, rgba(0,0,0,.9), transparent); }
+  .stadium-info h4 { font-family: 'Bebas Neue'; font-size: 20px; letter-spacing: 1px; }
+  .stadium-info span { font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+ 
+  /* ─── GEOGRAFIA ─── */
+  .geo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 48px; }
+  .geo-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); padding: 28px 20px; text-align: center; transition: border-color .3s; }
+  .geo-card:hover { border-color: rgba(212,175,55,.3); }
+  .geo-card .geo-icon { font-size: 32px; margin-bottom: 12px; }
+  .geo-card .geo-val { font-family: 'Bebas Neue'; font-size: 26px; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px; display: block; }
+  .geo-card .geo-lbl { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+  .geo-hero { position: relative; height: 360px; overflow: hidden; border: 1px solid rgba(255,255,255,.06); }
+  .geo-hero img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.55) saturate(1.2); }
+  .geo-hero-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; background: linear-gradient(to top, rgba(0,0,0,.85), transparent); }
+  .geo-hero-text h3 { font-family: 'Bebas Neue'; font-size: 36px; letter-spacing: 2px; margin-bottom: 8px; }
+  .geo-hero-text p { font-size: 14px; color: #aaa; line-height: 1.7; max-width: 600px; }
+ 
+  /* ─── CULTURA ─── */
+  .cultura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .prato-card { position: relative; overflow: hidden; height: 320px; }
+  .prato-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.55) saturate(1.3); transition: transform .4s; }
+  .prato-card:hover img { transform: scale(1.04); }
+  .prato-overlay { position: absolute; inset: 0; padding: 28px; background: linear-gradient(to top, rgba(0,0,0,.9) 0%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; }
+  .prato-overlay .tag { font-size: 9px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block; }
+  .prato-overlay h3 { font-family: 'Bebas Neue'; font-size: 36px; letter-spacing: 2px; margin-bottom: 8px; }
+  .prato-overlay p { font-size: 13px; color: #bbb; line-height: 1.6; }
+  .curiosidades { display: flex; flex-direction: column; gap: 20px; }
+  .curiosidade-item { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); padding: 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color .3s; }
+  .curiosidade-item:hover { border-color: rgba(212,175,55,.25); }
+  .curio-icon { font-size: 28px; flex-shrink: 0; }
+  .curio-text h4 { font-family: 'Bebas Neue'; font-size: 20px; letter-spacing: 1px; color: var(--gold); margin-bottom: 6px; }
+  .curio-text p { font-size: 13px; color: #999; line-height: 1.6; }
+  .musica-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); padding: 28px; display: flex; gap: 20px; align-items: center; margin-top: 20px; }
+  .musica-icon { font-size: 48px; }
+  .musica-text h4 { font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 2px; color: var(--white); margin-bottom: 6px; }
+  .musica-text p { font-size: 13px; color: #999; line-height: 1.6; }
+ 
+  /* ─── GALERIA ─── */
+  #galeria { max-width: 100%; padding: 100px 40px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 240px); gap: 8px; max-width: 1200px; margin: 0 auto; }
+  .gallery-item { overflow: hidden; position: relative; cursor: pointer; }
+  .gallery-item.span2 { grid-column: span 2; }
+  .gallery-item.rowspan2 { grid-row: span 2; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.6) saturate(1.2); transition: transform .4s, filter .4s; }
+  .gallery-item:hover img { transform: scale(1.08); filter: brightness(.8) saturate(1.4); }
+  .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(200,16,46,.15), transparent); opacity: 0; transition: opacity .3s; }
+  .gallery-item:hover::after { opacity: 1; }
+
+  /* ─── QUIZ ─── */
+  #quiz-section {
+    max-width: 100%;
+    background: linear-gradient(160deg, rgba(200,16,46,.06) 0%, var(--black) 50%), var(--gray);
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  #quiz-section::before {
+    content: 'QUIZ';
+    position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+    font-family: 'Bebas Neue'; font-size: 300px; line-height: 1;
+    color: rgba(200,16,46,.04); pointer-events: none; letter-spacing: -10px;
+  }
+
+  .quiz-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* Progress bar */
+  .quiz-progress-wrap {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 48px;
+  }
+  .quiz-progress-bar {
+    flex: 1; height: 3px; background: rgba(255,255,255,.08); position: relative; overflow: hidden;
+  }
+  .quiz-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    transition: width .5s cubic-bezier(.4,0,.2,1);
+    width: 0%;
+  }
+  .quiz-progress-label {
+    font-family: 'Bebas Neue'; font-size: 18px; color: var(--gold); letter-spacing: 2px; white-space: nowrap;
+  }
+
+  /* Score display top */
+  .quiz-score-display {
+    display: flex; gap: 24px; margin-bottom: 40px;
+  }
+  .score-pill {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+    padding: 10px 20px; display: flex; align-items: center; gap: 8px;
+  }
+  .score-pill .sp-val { font-family: 'Bebas Neue'; font-size: 24px; color: var(--gold); letter-spacing: 1px; }
+  .score-pill .sp-lbl { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+  /* Question */
+  .quiz-question-card {
+    background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+    padding: 40px; position: relative; overflow: hidden;
+    animation: slideInQ .4s cubic-bezier(.4,0,.2,1) both;
+  }
+  @keyframes slideInQ {
+    from { opacity: 0; transform: translateX(24px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .quiz-question-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: linear-gradient(to bottom, var(--red), var(--gold));
+  }
+
+  .question-category {
+    font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--red-light);
+    margin-bottom: 16px; display: block;
+  }
+  .question-text {
+    font-family: 'Cinzel', serif; font-size: clamp(16px, 2.5vw, 22px);
+    color: var(--white); line-height: 1.5; margin-bottom: 32px;
+  }
+
+  /* Options */
+  .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+
+  .quiz-option {
+    background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+    padding: 16px 20px; cursor: pointer; display: flex; align-items: center; gap: 16px;
+    transition: all .25s; position: relative; overflow: hidden;
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  }
+  .quiz-option:hover:not(.answered) {
+    border-color: rgba(212,175,55,.4);
+    background: rgba(212,175,55,.05);
+    transform: translateX(4px);
+  }
+  .quiz-option.correct {
+    border-color: #2ECC71;
+    background: rgba(46,204,113,.08);
+    animation: correctPulse .4s ease;
+  }
+  .quiz-option.wrong {
+    border-color: var(--red-light);
+    background: rgba(200,16,46,.08);
+  }
+  .quiz-option.reveal-correct {
+    border-color: rgba(46,204,113,.4);
+    background: rgba(46,204,113,.04);
+  }
+  @keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  .option-letter {
+    width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue'; font-size: 16px; color: var(--text-muted);
+    flex-shrink: 0; transition: all .25s;
+  }
+  .quiz-option.correct .option-letter { border-color: #2ECC71; color: #2ECC71; background: rgba(46,204,113,.1); }
+  .quiz-option.wrong .option-letter { border-color: var(--red-light); color: var(--red-light); background: rgba(200,16,46,.1); }
+  .quiz-option.reveal-correct .option-letter { border-color: rgba(46,204,113,.5); color: #2ECC71; }
+
+  .option-text { font-size: 14px; color: var(--cream); flex: 1; }
+  .option-icon { font-size: 18px; margin-left: auto; }
+
+  /* Feedback */
+  .quiz-feedback {
+    margin-top: 20px; padding: 20px 24px;
+    background: rgba(255,255,255,.03); border-left: 3px solid var(--gold);
+    animation: fadeUp .4s both;
+    display: none;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback p { font-size: 13px; color: #bbb; line-height: 1.7; }
+  .quiz-feedback strong { color: var(--gold); }
+
+  /* AI commentary box */
+  .ai-comment {
+    margin-top: 12px; padding: 16px;
+    background: rgba(200,16,46,.05); border: 1px solid rgba(200,16,46,.15);
+    font-size: 13px; color: #ccc; line-height: 1.7;
+    display: none;
+  }
+  .ai-comment.show { display: block; animation: fadeUp .4s both; }
+  .ai-comment-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .ai-comment-header span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--red-light); }
+  .ai-typing { display: inline-block; }
+  .ai-typing::after { content: '▌'; animation: blink .7s infinite; }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+  /* Next button */
+  .quiz-next-btn {
+    margin-top: 28px; width: 100%;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: #fff; border: none; padding: 18px;
+    font-family: 'Inter', sans-serif; font-size: 11px;
+    letter-spacing: 4px; text-transform: uppercase; font-weight: 600;
+    cursor: pointer; transition: all .3s;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    display: none;
+  }
+  .quiz-next-btn.show {
+    display: block; animation: fadeUp .3s .2s both;
+  }
+  .quiz-next-btn:hover { background: linear-gradient(135deg, var(--red-light), var(--red)); box-shadow: 0 8px 30px rgba(200,16,46,.5); transform: translateY(-2px); }
+
+  /* Result screen */
+  .quiz-result {
+    display: none; text-align: center; padding: 60px 40px;
+    background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+    animation: fadeUp .6s both;
+  }
+  .quiz-result.show { display: block; }
+  .result-dragon { font-size: 80px; margin-bottom: 24px; display: block; animation: roar 1s ease infinite alternate; }
+  @keyframes roar { from { transform: scale(1) rotate(-3deg); } to { transform: scale(1.1) rotate(3deg); } }
+  .result-title { font-family: 'Bebas Neue'; font-size: 56px; letter-spacing: 4px; margin-bottom: 8px; }
+  .result-score-big {
+    font-family: 'Bebas Neue'; font-size: 100px; line-height: 1;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .result-sub { font-size: 13px; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 32px; }
+  .result-message { font-size: 15px; color: #bbb; line-height: 1.7; max-width: 500px; margin: 0 auto 40px; }
+  .result-ai-comment {
+    background: rgba(200,16,46,.05); border: 1px solid rgba(200,16,46,.2);
+    padding: 24px; text-align: left; margin-bottom: 32px;
+  }
+  .result-ai-comment p { font-size: 14px; color: #ccc; line-height: 1.8; }
+  .quiz-restart-btn {
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: #fff; border: none; padding: 18px 48px;
+    font-family: 'Inter', sans-serif; font-size: 11px;
+    letter-spacing: 4px; text-transform: uppercase; font-weight: 600;
+    cursor: pointer; transition: all .3s;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  }
+  .quiz-restart-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,16,46,.5); }
+
+  /* ─── NEWSLETTER ─── */
+  #newsletter-section { max-width: 100%; background: linear-gradient(160deg, rgba(200,16,46,.08) 0%, rgba(0,0,0,0) 60%), var(--gray); border-top: 1px solid rgba(255,255,255,.06); padding: 100px 40px; }
+  .newsletter-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  .newsletter-inner .section-title { margin-bottom: 4px; }
+  .newsletter-inner p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 48px; }
+  .form-row { display: flex; flex-direction: column; gap: 16px; }
+  .form-group { position: relative; }
+  .form-group input, .form-group select { width: 100%; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); color: var(--white); padding: 16px 20px; font-size: 14px; font-family: 'Inter', sans-serif; outline: none; transition: border-color .3s, background .3s; }
+  .form-group input::placeholder { color: var(--text-muted); }
+  .form-group input:focus, .form-group select:focus { border-color: var(--gold); background: rgba(255,255,255,.06); }
+  .form-group select { appearance: none; cursor: pointer; color: var(--text-muted); }
+  .form-group select option { background: #1a1a1a; color: var(--white); }
+  .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-error { font-size: 11px; color: var(--red-light); margin-top: 4px; display: none; }
+  .form-group.error input { border-color: var(--red-light); }
+  .form-group.error .form-error { display: block; }
+  .form-group.success input { border-color: #2ECC71; }
+  .submit-btn { width: 100%; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: #fff; border: none; padding: 18px; font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all .3s; margin-top: 8px; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+  .submit-btn:hover { background: linear-gradient(135deg, var(--red-light), var(--red)); box-shadow: 0 8px 30px rgba(200,16,46,.5); transform: translateY(-2px); }
+  .success-message { display: none; text-align: center; padding: 48px 32px; background: rgba(46, 204, 113, .05); border: 1px solid rgba(46, 204, 113, .2); animation: fadeUp .5s both; }
+  .success-message .check { font-size: 56px; margin-bottom: 16px; display: block; }
+  .success-message h3 { font-family: 'Bebas Neue'; font-size: 32px; letter-spacing: 3px; color: #2ECC71; margin-bottom: 8px; }
+  .success-message p { font-size: 14px; color: var(--text-muted); }
+ 
+  /* ─── FOOTER ─── */
+  footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,.06); font-size: 12px; color: var(--text-muted); letter-spacing: 2px; }
+  footer span { color: var(--red); }
+ 
+  /* ─── SCROLL REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+  .reveal.visible { opacity: 1; transform: none; }
+ 
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    section { padding: 70px 20px; }
+    .players-grid { grid-template-columns: 1fr; }
+    .history-grid { grid-template-columns: 1fr; }
+    .stadiums-grid { grid-template-columns: 1fr; }
+    .geo-grid { grid-template-columns: repeat(2, 1fr); }
+    .cultura-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .gallery-item.span2 { grid-column: auto; }
+    .gallery-item.rowspan2 { grid-row: auto; }
+    .input-row { grid-template-columns: 1fr; }
+    .copa-header { flex-direction: column; }
+    #quiz-section { padding: 70px 20px; }
+    .quiz-question-card { padding: 24px; }
+    .result-score-big { font-size: 70px; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">CYMRU</a>
+  <ul class="nav-links">
+    <li><a href="#time">O Time</a></li>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#copa2026">Copa 2026</a></li>
+    <li><a href="#geografia">Geo & História</a></li>
+    <li><a href="#cultura">Cultura</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#quiz-section">Quiz</a></li>
+    <li><a href="#newsletter-section">Newsletter</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<section id="home" style="max-width:100%; padding:0;">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-shield"></div>
+    <span class="hero-eyebrow">Seleção Nacional · Associação de futebol do País de Gales</span>
+    <h1 class="hero-title">CYMRU</h1>
+    <p class="hero-sub">País de Gales · Os Dragões</p>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">A terra dos dragões desperta. Uma nação. Uma chama. Uma paixão que ecoa pelas montanhas de Gales.</p>
+    <div class="cta-group">
+      <a href="#time" class="btn-primary">Conheça o Time</a>
+      <a href="#historia" class="btn-outline">Nossa História</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span>Scroll</span></div>
+</section>
+ 
+<!-- O TIME -->
+<section id="time">
+  <span class="section-label reveal">A Seleção</span>
+  <h2 class="section-title reveal">O TIME</h2>
+  <div class="section-line reveal"></div>
+  <div class="reveal"><span class="nickname-badge">🐉 Os Dragões · O Dragão</span></div>
+  <div class="coach-card reveal">
+    <div class="coach-img">🎯</div>
+    <div class="coach-info">
+      <span class="role">Técnico Principal</span>
+      <h3>Craig Bellamy</h3>
+      <p>Nomeado em julho de 2024, Bellamy trouxe energia e ambição renovadas à seleção galesa. Imbatível nos primeiros 9 jogos e campeão do Grupo B4 da Nations League 2024-25, o ex-atacante molda o Gales com um futebol moderno, intenso e organizado. Seu maior feito: uma goleada histórica de 7–1 sobre a Macedônia do Norte.</p>
+    </div>
+  </div>
+  <div class="players-grid">
+    <div class="player-card reveal">
+      <div class="player-photo">
+        <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=400&q=80" alt="Brennan Johnson">
+        <div class="player-overlay"></div>
+        <span class="player-num">11</span>
+      </div>
+      <div class="player-info">
+        <span class="pos">Ponta Direita</span>
+        <h3>Brennan Johnson</h3>
+        <p class="club">Tottenham Hotspur · Premier League</p>
+        <div class="player-stats">
+          <div class="stat"><div class="val">26+</div><div class="lbl">Caps</div></div>
+          <div class="stat"><div class="val">8</div><div class="lbl">Gols</div></div>
+          <div class="stat"><div class="val">22</div><div class="lbl">Idade</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="player-card reveal">
+      <div class="player-photo">
+        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=400&q=80" alt="Ethan Ampadu">
+        <div class="player-overlay"></div>
+        <span class="player-num">4</span>
+      </div>
+      <div class="player-info">
+        <span class="pos">Meio-Campo Defensivo</span>
+        <h3>Ethan Ampadu</h3>
+        <p class="club">Chelsea FC · Premier League</p>
+        <div class="player-stats">
+          <div class="stat"><div class="val">50+</div><div class="lbl">Caps</div></div>
+          <div class="stat"><div class="val">3</div><div class="lbl">Gols</div></div>
+          <div class="stat"><div class="val">24</div><div class="lbl">Idade</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="player-card reveal">
+      <div class="player-photo">
+        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&q=80" alt="Harry Wilson">
+        <div class="player-overlay"></div>
+        <span class="player-num">7</span>
+      </div>
+      <div class="player-info">
+        <span class="pos">Meia-Atacante</span>
+        <h3>Harry Wilson</h3>
+        <p class="club">Fulham FC · Premier League</p>
+        <div class="player-stats">
+          <div class="stat"><div class="val">65+</div><div class="lbl">Caps</div></div>
+          <div class="stat"><div class="val">15+</div><div class="lbl">Gols</div></div>
+          <div class="stat"><div class="val">27</div><div class="lbl">Idade</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- HISTÓRIA -->
+<div class="full-bleed">
+<section id="historia">
+  <span class="section-label reveal">Trajetória</span>
+  <h2 class="section-title reveal">HISTÓRIA NAS COPAS</h2>
+  <div class="section-line reveal"></div>
+  <div class="history-grid">
+    <div class="history-card reveal">
+      <span class="icon">🏆</span>
+      <h3>Copa do Mundo 1958</h3>
+      <p>A única e gloriosa participação galesa em uma Copa, na Suécia. Eliminados apenas nas quartas de final pelo Brasil — campeão do mundo — com um gol de um jovem chamado Pelé. A melhor campanha de Gales em Copas até hoje.</p>
+      <div class="year">1958</div>
+    </div>
+    <div class="history-card reveal">
+      <span class="icon">⚡</span>
+      <h3>Copa do Mundo 2022</h3>
+      <p>Depois de 64 anos de espera, Gales retornou à Copa no Qatar. Um feito histórico impulsionado pela geração de Gareth Bale e Ramsey. Fase de grupos, mas com a honra de ter quebrado um jejum de mais de seis décadas.</p>
+      <div class="year">2022</div>
+    </div>
+  </div>
+  <div class="timeline-moment reveal">
+    <span class="tag">📅 Momento Histórico · 1958</span>
+    <h3>O Gol de Pelé que Parou Gales</h3>
+    <p>Nas quartas de final da Copa do Mundo de 1958, na Suécia, um jovem de 17 anos chamado Pelé marcou o único gol da partida e eliminou Gales da competição. Foi o primeiro gol de Pelé em Copas do Mundo. Os galeses saíram de cabeça erguida: haviam chegado às quartas de final eliminando a Hungria no playoff da fase de grupos. John Charles, o "Gentle Giant", foi o grande herói desta jornada — o melhor jogador da história galesa antes de Gareth Bale.</p>
+  </div>
+</section>
+</div>
+ 
+<!-- COPA 2026 -->
+<section id="copa2026">
+  <span class="section-label reveal">FIFA World Cup 2026</span>
+  <h2 class="section-title reveal">SEDE E ESTÁDIOS</h2>
+  <div class="section-line reveal"></div>
+  <div class="copa-header reveal">
+    <div>
+      <p style="font-size:14px; color:#aaa; line-height:1.8; max-width:580px;">
+        Gales disputou o playoff europeu pela vaga na Copa 2026 (EUA, Canadá e México). Com a nova geração liderada por Bellamy, os dragões buscaram seu terceiro Mundial. A Copa 2026 acontece em 16 cidades espalhadas pelos três países anfitriões do torneio mais aguardado das últimas décadas.
+      </p>
+    </div>
+    <div class="group-badge">
+      <span class="group-letter">W</span>
+      <span class="group-label">Cymru · Gales</span>
+    </div>
+  </div>
+  <h3 class="reveal" style="font-family:'Bebas Neue'; font-size:24px; letter-spacing:2px; color:var(--gold); margin-bottom:20px;">Arenas da Copa 2026</h3>
+  <div class="stadiums-grid">
+    <div class="stadium-card reveal">
+      <img src="metlife-stadium.jpg" alt="MetLife Stadium">
+      <div class="stadium-info"><h4>MetLife Stadium</h4><span>Nova York · EUA · 82.500 lugares</span></div>
+    </div>
+    <div class="stadium-card reveal">
+      <img src="estadioazteca.jpg" alt="Azteca">
+      <div class="stadium-info"><h4>Estádio Azteca</h4><span>Cidade do México · México · 87.500 lugares</span></div>
+    </div>
+    <div class="stadium-card reveal">
+      <img src="AT&Tstadium.jpg" alt="AT&T Stadium">
+      <div class="stadium-info"><h4>AT&T Stadium</h4><span>Dallas · EUA · 80.000 lugares</span></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- GEOGRAFIA E HISTÓRIA -->
+<div class="full-bleed">
+<section id="geografia">
+  <span class="section-label reveal">O País</span>
+  <h2 class="section-title reveal">GEOGRAFIA E HISTÓRIA</h2>
+  <div class="section-line reveal"></div>
+  <div class="geo-grid">
+    <div class="geo-card reveal"><div class="geo-icon">🏛️</div><span class="geo-val">Cardiff</span><span class="geo-lbl">Capital · Caerdydd</span></div>
+    <div class="geo-card reveal"><div class="geo-icon">🗣️</div><span class="geo-val">Cymraeg</span><span class="geo-lbl">Idioma Oficial · Galês</span></div>
+    <div class="geo-card reveal"><div class="geo-icon">👥</div><span class="geo-val">3,2 Mi</span><span class="geo-lbl">População</span></div>
+    <div class="geo-card reveal"><div class="geo-icon">⛰️</div><span class="geo-val">Snowdon</span><span class="geo-lbl">Ponto mais alto · 1.085m</span></div>
+  </div>
+  <div class="geo-hero reveal">
+    <img src="país_gales.jpg" alt="País de Gales">
+    <div class="geo-hero-text">
+      <h3>Terra dos Celtas e dos Dragões</h3>
+      <p>O País de Gales é uma nação celta com mais de 2.000 anos de história, parte do Reino Unido desde 1284. Seus castelos medievais — mais de 600 — formam a maior concentração por km² do mundo. A língua galesa, o Cymraeg, é falada por mais de 600 mil pessoas e está em crescimento. O Monte Snowdon, nas montanhas de Eryri, é o coração geográfico e espiritual do país.</p>
+    </div>
+  </div>
+</section>
+</div>
+ 
+<!-- CULTURA -->
+<section id="cultura">
+  <span class="section-label reveal">Identidade</span>
+  <h2 class="section-title reveal">CULTURA E CURIOSIDADES</h2>
+  <div class="section-line reveal"></div>
+  <div class="cultura-grid">
+    <div class="prato-card reveal">
+      <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80" alt="Cawl">
+      <div class="prato-overlay">
+        <span class="tag">🍲 Prato Típico</span>
+        <h3>Cawl</h3>
+        <p>Sopa tradicional galesa feita com cordeiro, alho-poró e batata. O prato mais emblemático de Gales, consumido há séculos como símbolo de conforto e identidade nacional. Servido com pão artesanal e queijo galês.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="musica-card">
+        <div class="musica-icon">🎵</div>
+        <div class="musica-text">
+          <h4>Nação dos Cantores</h4>
+          <p>Gales é conhecida como a "Terra dos Cantores". O coral masculino (male voice choir) é uma tradição profundamente enraizada, nascida nas comunidades mineiras do século XIX. O hino nacional "Hen Wlad Fy Nhadau" é considerado um dos mais emocionantes do mundo — e os torcedores galeses o cantam com uma paixão que faz vibrar qualquer estádio.</p>
+        </div>
+      </div>
+      <div class="curiosidades">
+        <div class="curiosidade-item reveal">
+          <span class="curio-icon">🐉</span>
+          <div class="curio-text">
+            <h4>O Único País com um Dragão na Bandeira</h4>
+            <p>Gales é o único país do mundo cuja bandeira nacional exibe um dragão vermelho — o Y Ddraig Goch. A lenda diz que o dragão vermelho galês derrotou o dragão branco dos saxões, simbolizando a resistência e identidade celta.</p>
+          </div>
+        </div>
+        <div class="curiosidade-item reveal">
+          <span class="curio-icon">📖</span>
+          <div class="curio-text">
+            <h4>O Nome de Cidade Mais Longo do Mundo</h4>
+            <p>Gales abriga Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch — com 58 letras, é o nome de lugar mais longo da Europa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- GALERIA -->
+<div id="galeria" style="max-width:100%; padding:80px 0; background:var(--gray);">
+  <div style="max-width:1200px; margin:0 auto; padding: 0 40px 40px;">
+    <span class="section-label reveal">Fotos</span>
+    <h2 class="section-title reveal">GALERIA</h2>
+    <div class="section-line reveal"></div>
+  </div>
+  <div class="gallery-grid" style="max-width:1200px; margin:0 auto; padding:0 40px;">
+    <div class="gallery-item span2 rowspan2 reveal"><img src="estadiogales.jpg" alt="Football stadium Wales"></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1434648957308-5e6a859697e8?w=400&q=80" alt="Welsh fans"></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=400&q=80" alt="Wales landscape"></div>
+    <div class="gallery-item span2 reveal"><img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&q=80" alt="Football action"></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1599586120429-48281b6f0ece?w=400&q=80" alt="Cardiff Castle"></div>
+    <div class="gallery-item reveal"><img src="belta.jpg" alt="Wales mountains"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ QUIZ ═══════════════════════════════════ -->
+<div id="quiz-section">
+  <div class="quiz-inner">
+
+    <span class="section-label reveal" style="display:block;">Desafio dos Dragões</span>
+    <h2 class="section-title reveal">QUIZ CYMRU</h2>
+    <div class="section-line reveal"></div>
+    <p class="reveal" style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:40px;">
+      Quanto você sabe sobre o País de Gales e sua seleção? Responda 10 perguntas e descubra se você é digno de cantar o Hen Wlad Fy Nhadau nos estádios.
+    </p>
+
+    <!-- Score pills -->
+    <div class="quiz-score-display reveal" id="quiz-score-wrap">
+      <div class="score-pill">
+        <span class="sp-val" id="score-correct">0</span>
+        <span class="sp-lbl">Acertos</span>
+      </div>
+      <div class="score-pill">
+        <span class="sp-val" id="score-wrong">0</span>
+        <span class="sp-lbl">Erros</span>
+      </div>
+      <div class="score-pill">
+        <span class="sp-val" id="score-remaining">10</span>
+        <span class="sp-lbl">Restantes</span>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="quiz-progress-wrap reveal">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="progress-fill"></div></div>
+      <span class="quiz-progress-label" id="progress-label">0 / 8</span>
+    </div>
+
+    <!-- Question card -->
+    <div id="quiz-question-wrap">
+      <div class="quiz-question-card" id="quiz-card">
+        <span class="question-category" id="q-category">Futebol</span>
+        <p class="question-text" id="q-text">Carregando...</p>
+        <div class="quiz-options" id="q-options"></div>
+        <div class="quiz-feedback" id="q-feedback">
+          <p id="q-feedback-text"></p>
+          <div class="ai-comment" id="q-ai-comment">
+            <div class="ai-comment-header"><span>🐉 Comentário do Dragão</span></div>
+            <p id="q-ai-text"></p>
+          </div>
+        </div>
+        <button class="quiz-next-btn" id="quiz-next-btn" onclick="nextQuestion()">Próxima Pergunta →</button>
+      </div>
+    </div>
+
+    <!-- Result screen -->
+    <div class="quiz-result" id="quiz-result">
+      <span class="result-dragon" id="result-emoji">🐉</span>
+      <div class="result-title" id="result-title">FIM DO JOGO</div>
+      <div class="result-score-big" id="result-score">0/8</div>
+      <div class="result-sub" id="result-percent">0% de acertos</div>
+      <p class="result-message" id="result-msg">Resultado calculado...</p>
+      <div class="result-ai-comment" id="result-ai-wrap" style="display:none;">
+        <div class="ai-comment-header" style="margin-bottom:12px;"><span>🐉 Análise do Dragão</span></div>
+        <p id="result-ai-text" style="font-size:14px; color:#ccc; line-height:1.8;"></p>
+      </div>
+      <button class="quiz-restart-btn" onclick="restartQuiz()">🔄 Jogar Novamente</button>
+    </div>
+
+  </div>
+</div>
+ 
+<!-- NEWSLETTER -->
+<div id="newsletter-section">
+<div class="newsletter-inner">
+  <span class="section-label" style="display:block; text-align:center;">Fique por Dentro</span>
+  <h2 class="section-title">NEWSLETTER</h2>
+  <div class="section-line" style="margin:12px auto 24px;"></div>
+  <p>Receba notícias exclusivas sobre a seleção galesa, resultados, convocações e análises diretamente no seu e-mail. Seja parte da Red Wall digital.</p>
+  <div id="newsletter-form">
+    <div class="form-row">
+      <div class="input-row">
+        <div class="form-group" id="fg-nome"><input type="text" id="inp-nome" placeholder="Seu nome" autocomplete="given-name"><div class="form-error">Por favor, insira seu nome.</div></div>
+        <div class="form-group" id="fg-sobrenome"><input type="text" id="inp-sobrenome" placeholder="Sobrenome" autocomplete="family-name"><div class="form-error">Por favor, insira seu sobrenome.</div></div>
+      </div>
+      <div class="form-group" id="fg-email"><input type="email" id="inp-email" placeholder="Seu melhor e-mail" autocomplete="email"><div class="form-error">Insira um e-mail válido.</div></div>
+      <div class="form-group" id="fg-interesse">
+        <select id="inp-interesse">
+          <option value="" disabled selected>Quero receber conteúdo sobre...</option>
+          <option value="resultados">Resultados e Jogos</option>
+          <option value="convocacoes">Convocações e Elenco</option>
+          <option value="historia">História e Cultura Galesa</option>
+          <option value="copa2026">Copa 2026</option>
+          <option value="tudo">Tudo sobre Cymru!</option>
+        </select>
+        <div class="form-error">Selecione um interesse.</div>
+      </div>
+      <button class="submit-btn" onclick="handleSubmit()">🐉 Juntar-se à Red Wall</button>
+    </div>
+  </div>
+  <div class="success-message" id="success-msg">
+    <span class="check">🐉</span>
+    <h3>Bem-vindo à Red Wall!</h3>
+    <p>Você agora faz parte da nação galesa digital. Prepare-se para as melhores histórias de Cymru direto no seu inbox. <em>Diolch yn fawr!</em> (Muito obrigado!)</p>
+  </div>
+</div>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <p>🐉 &nbsp; CYMRU · PAÍS DE GALES &nbsp; · &nbsp; <span>The Dragons</span> &nbsp; · &nbsp; Football Association of Wales</p>
+  <p style="margin-top:8px; font-size:10px;">Criado com paixão · Feito para os fãs</p>
+</footer>
+ 
+<script>
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Newsletter ──
+  function handleSubmit() {
+    const nome = document.getElementById('inp-nome');
+    const sobrenome = document.getElementById('inp-sobrenome');
+    const email = document.getElementById('inp-email');
+    const interesse = document.getElementById('inp-interesse');
+    let valid = true;
+    const fields = [
+      { input: nome, group: 'fg-nome', check: v => v.trim().length >= 2 },
+      { input: sobrenome, group: 'fg-sobrenome', check: v => v.trim().length >= 2 },
+      { input: email, group: 'fg-email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { input: interesse, group: 'fg-interesse', check: v => v !== '' },
+    ];
+    fields.forEach(f => {
+      const g = document.getElementById(f.group);
+      g.classList.remove('error', 'success');
+      if (!f.check(f.input.value)) { g.classList.add('error'); valid = false; }
+      else g.classList.add('success');
+    });
+    if (valid) {
+      setTimeout(() => {
+        document.getElementById('newsletter-form').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      }, 400);
+    }
+  }
+
+  // ── Active nav ──
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.forEach(a => {
+      a.style.opacity = a.getAttribute('href') === '#' + cur ? '1' : '.75';
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
+    });
+  });
+
+  // ══════════════════════════════════════════════
+  //  QUIZ ENGINE
+  // ══════════════════════════════════════════════
+  const questions = [
+    {
+      category: '🐉 Identidade',
+      text: 'Qual é o nome em galês para o País de Gales?',
+      options: ['Gallia', 'Cymru', 'Walias', 'Celyf'],
+      correct: 1,
+      feedback: 'Em galês, o país chama-se <strong>Cymru</strong> — pronunciado aproximadamente "Kumri". O nome tem origem celta e significa "compatriotas" ou "companheiros". Daí também vem o nome da seleção nacional.'
+    },
+    {
+      category: '⚽ Futebol · História',
+      text: 'Em que ano Gales participou de sua primeira e única Copa do Mundo antes de 2022?',
+      options: ['1950', '1954', '1958', '1966'],
+      correct: 2,
+      feedback: 'Gales participou da Copa do Mundo de <strong>1958</strong>, realizada na Suécia. Foi a única participação galesa em Mundiais por 64 anos, até o retorno em 2022, no Qatar.'
+    },
+    {
+      category: '⚽ Futebol · Lendas',
+      text: 'Quem marcou o gol que eliminou Gales nas quartas de final da Copa de 1958?',
+      options: ['Garrincha', 'Didi', 'Vavá', 'Pelé'],
+      correct: 3,
+      feedback: '<strong>Pelé</strong>, com apenas 17 anos, marcou o único gol da partida eliminando Gales. Foi o primeiro gol de Pelé em Copas do Mundo — o início de uma lenda. Os galeses perderam para o eventual campeão mundial.'
+    },
+    {
+      category: '🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cultura',
+      text: 'Qual animal mitológico aparece na bandeira nacional de Gales?',
+      options: ['Grifo', 'Fênix', 'Dragão Vermelho', 'Leão Dourado'],
+      correct: 2,
+      feedback: 'O <strong>Dragão Vermelho (Y Ddraig Goch)</strong> é o símbolo máximo de Gales. A lenda diz que o dragão vermelho galês venceu o dragão branco saxão, representando a resistência celta. Gales é o único país do mundo com um dragão em sua bandeira nacional.'
+    },
+    {
+      category: '⚽ Futebol · Time Atual',
+      text: 'Qual clube Brennan Johnson — atacante da seleção galesa — defende na Premier League?',
+      options: ['Arsenal', 'Chelsea', 'Tottenham Hotspur', 'Aston Villa'],
+      correct: 2,
+      feedback: '<strong>Brennan Johnson</strong> joga pelo <strong>Tottenham Hotspur</strong> na Premier League. Nascido em Nottingham de pai galês, ele emergiu como um dos jovens talentos mais brilhantes do futebol galês, com velocidade e habilidade notáveis.'
+    },
+    {
+      category: '⚽ Futebol · Técnico',
+      text: 'Quem assumiu o comando da seleção galesa em julho de 2024?',
+      options: ['Ryan Giggs', 'Robert Page', 'Craig Bellamy', 'Mark Hughes'],
+      correct: 2,
+      feedback: '<strong>Craig Bellamy</strong> assumiu a seleção galesa em julho de 2024. O ex-atacante, ídolo no país, iniciou seu trabalho de forma impressionante, permanecendo invicto nos primeiros nove jogos e conquistando o Grupo B4 da Nations League 2024-25.'
+    },
+    {
+      category: '🏴󠁧󠁢󠁷󠁬󠁳󠁿 Geografia',
+      text: 'Qual é a capital do País de Gales?',
+      options: ['Swansea', 'Newport', 'Bangor', 'Cardiff'],
+      correct: 3,
+      feedback: '<strong>Cardiff (Caerdydd em galês)</strong> é a capital e maior cidade do País de Gales. Localizada no sul do país, às margens do Rio Taff, Cardiff abriga o famoso Millennium Stadium (agora Cardiff City Stadium para o futebol) e o imponente Castelo de Cardiff.'
+    },
+    {
+      category: '🎵 Cultura · Música',
+      text: 'Como é chamado o hino nacional do País de Gales?',
+      options: ['God Save The King', 'Calon Lân', 'Hen Wlad Fy Nhadau', 'Mae Hen Wlad'],
+      correct: 2,
+      feedback: '<strong>Hen Wlad Fy Nhadau</strong> ("A Terra de Meus Pais") é o hino nacional de Gales. Composto em 1856, é considerado um dos hinos mais emocionantes do mundo. Quando a torcida galesa o canta nos estádios, é um dos espetáculos mais arrepiantes do futebol mundial.'
+    },
+    {
+      category: '⚽ Futebol · Elenco',
+      text: 'Qual jogador galês é o recordista em número de internacionalizações pela seleção de Gales?',
+      options: ['John Charles', 'Ian Rush', 'Gareth Bale', 'Chris Gunter'],
+      correct: 3,
+      feedback: '<strong>Chris Gunter</strong> é o jogador com mais caps pela seleção galesa, com mais de 100 internacionalizações. O lateral-direito, discreto mas fundamental, superou até Gareth Bale nesta estatística — um exemplo de dedicação e consistência raramente reconhecida.'
+    },
+    {
+      category: '🏔️ Geografia · Curiosidades',
+      text: 'Qual é o ponto mais alto do País de Gales?',
+      options: ['Pen y Fan', 'Cadair Idris', 'Snowdon (Yr Wyddfa)', 'Brecon Beacons'],
+      correct: 2,
+      feedback: '<strong>Snowdon (Yr Wyddfa em galês)</strong>, com 1.085 metros, é o ponto mais alto de Gales e da Inglaterra. Localizado no Parque Nacional de Eryri (ex-Snowdonia), é um símbolo geográfico e espiritual da nação galesa, escalado por milhares de pessoas todos os anos.'
+    }
+  ];
+
+  let currentQ = 0;
+  let score = 0;
+  let wrongs = 0;
+  let answered = false;
+
+  function renderQuestion() {
+    const q = questions[currentQ];
+    answered = false;
+
+    // Update progress
+    const pct = (currentQ / questions.length) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = currentQ + ' / ' + questions.length;
+    document.getElementById('score-remaining').textContent = questions.length - currentQ;
+
+    // Animate card
+    const card = document.getElementById('quiz-card');
+    card.style.animation = 'none';
+    void card.offsetWidth;
+    card.style.animation = 'slideInQ .4s cubic-bezier(.4,0,.2,1) both';
+
+    document.getElementById('q-category').textContent = q.category;
+    document.getElementById('q-text').textContent = q.text;
+
+    const letters = ['A', 'B', 'C', 'D'];
+    const optionsEl = document.getElementById('q-options');
+    optionsEl.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.innerHTML = `
+        <span class="option-letter">${letters[i]}</span>
+        <span class="option-text">${opt}</span>
+        <span class="option-icon"></span>
+      `;
+      btn.onclick = () => selectAnswer(i);
+      optionsEl.appendChild(btn);
+    });
+
+    // Hide feedback & next
+    const feedback = document.getElementById('q-feedback');
+    feedback.classList.remove('show');
+    document.getElementById('q-ai-comment').classList.remove('show');
+    document.getElementById('quiz-next-btn').classList.remove('show');
+  }
+
+  function selectAnswer(chosen) {
+    if (answered) return;
+    answered = true;
+
+    const q = questions[currentQ];
+    const options = document.querySelectorAll('.quiz-option');
+
+    options.forEach(o => o.classList.add('answered'));
+
+    if (chosen === q.correct) {
+      options[chosen].classList.add('correct');
+      options[chosen].querySelector('.option-icon').textContent = '✓';
+      score++;
+      document.getElementById('score-correct').textContent = score;
+    } else {
+      options[chosen].classList.add('wrong');
+      options[chosen].querySelector('.option-icon').textContent = '✗';
+      options[q.correct].classList.add('reveal-correct');
+      options[q.correct].querySelector('.option-icon').textContent = '✓';
+      wrongs++;
+      document.getElementById('score-wrong').textContent = wrongs;
+    }
+
+    // Show feedback
+    const feedback = document.getElementById('q-feedback');
+    document.getElementById('q-feedback-text').innerHTML = q.feedback;
+    feedback.classList.add('show');
+
+    // Request AI commentary
+    getAIComment(q, chosen === q.correct);
+
+    // Show next button
+    setTimeout(() => {
+      document.getElementById('quiz-next-btn').classList.add('show');
+      const nextBtn = document.getElementById('quiz-next-btn');
+      nextBtn.textContent = currentQ + 1 >= questions.length ? 'Ver Resultado 🐉' : 'Próxima Pergunta →';
+    }, 600);
+  }
+
+  async function getAIComment(q, isCorrect) {
+    const aiBox = document.getElementById('q-ai-comment');
+    const aiText = document.getElementById('q-ai-text');
+    aiText.innerHTML = '<span class="ai-typing">Pensando</span>';
+    aiBox.classList.add('show');
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: 'Você é um comentarista apaixonado e bem-humorado sobre o País de Gales, futebol galês e cultura galesa. Fale em português do Brasil. Seja entusiasmado, use uma pitada de galês ocasionalmente (com tradução), e faça referências culturais galesas. Seja breve — máximo 2 frases.',
+          messages: [{
+            role: 'user',
+            content: `O usuário ${isCorrect ? 'ACERTOU' : 'ERROU'} a seguinte pergunta do quiz sobre Gales:\nPergunta: "${q.text}"\nResposta correta: "${q.options[q.correct]}"\nDê um comentário curto e entusiasmado (máximo 2 frases) sobre isso, sendo encorajador e adicionando um fato curioso relacionado.`
+          }]
+        })
+      });
+      const data = await response.json();
+      const text = data.content?.[0]?.text || 'Ymlaen Gymru! (Vamos Gales!)';
+      aiText.textContent = text;
+    } catch (e) {
+      aiText.textContent = 'Ymlaen Gymru! Continue firme nos seus estudos sobre a terra dos dragões! 🐉';
+    }
+  }
+
+  function nextQuestion() {
+    currentQ++;
+    if (currentQ >= questions.length) {
+      showResult();
+    } else {
+      renderQuestion();
+    }
+  }
+
+  async function showResult() {
+    document.getElementById('quiz-question-wrap').style.display = 'none';
+    document.getElementById('quiz-score-wrap').style.display = 'none';
+    document.querySelector('.quiz-progress-wrap').style.display = 'none';
+    document.getElementById('progress-label').style.display = 'none';
+
+    const result = document.getElementById('quiz-result');
+    result.classList.add('show');
+
+    const pct = Math.round((score / questions.length) * 100);
+    document.getElementById('result-score').textContent = score + '/' + questions.length;
+    document.getElementById('result-percent').textContent = pct + '% de acertos';
+
+    let emoji, title, msg;
+    if (pct === 100) {
+      emoji = '🐉'; title = 'DRAGÃO LENDÁRIO!';
+      msg = 'Perfeito! Você conhece Gales como um galês de nascença. Pode cantar o Hen Wlad Fy Nhadau sem hesitar!';
+    } else if (pct >= 75) {
+      emoji = '🏴󠁧󠁢󠁷󠁬󠁳󠁿'; title = 'RED WALL PRIDE!';
+      msg = 'Excelente! Você é definitivamente digno de fazer parte da Red Wall — a lendária torcida galesa. Diolch yn fawr!';
+    } else if (pct >= 50) {
+      emoji = '⚽'; title = 'EM DESENVOLVIMENTO!';
+      msg = 'Boa base! Você conhece o essencial, mas os dragões querem mais de você. Explore mais o site e volte para jogar!';
+    } else {
+      emoji = '📚'; title = 'PRECISA ESTUDAR!';
+      msg = 'Não desanime! Os dragões de Gales vieram de baixo para cima. Leia mais sobre Cymru e tente novamente!';
+    }
+
+    document.getElementById('result-emoji').textContent = emoji;
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-msg').textContent = msg;
+
+    // AI final commentary
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: 'Você é um comentarista apaixonado e bem-humorado sobre o País de Gales. Fale em português do Brasil. Seja entusiasmado, use uma pitada de galês (com tradução), e faça referências culturais galesas. Seja poético e inspirador, mas breve — máximo 3 frases.',
+          messages: [{
+            role: 'user',
+            content: `O usuário terminou o quiz sobre Gales e acertou ${score} de ${questions.length} perguntas (${pct}%). Dê uma análise final apaixonada e personalizada ao resultado, mencionando os dragões galeses, a cultura ou o futebol. Seja criativo!`
+          }]
+        })
+      });
+      const data = await response.json();
+      const text = data.content?.[0]?.text || '';
+      if (text) {
+        document.getElementById('result-ai-text').textContent = text;
+        document.getElementById('result-ai-wrap').style.display = 'block';
+      }
+    } catch(e) {}
+  }
+
+  function restartQuiz() {
+    currentQ = 0; score = 0; wrongs = 0; answered = false;
+    document.getElementById('score-correct').textContent = '0';
+    document.getElementById('score-wrong').textContent = '0';
+    document.getElementById('quiz-result').classList.remove('show');
+    document.getElementById('quiz-question-wrap').style.display = 'block';
+    document.getElementById('quiz-score-wrap').style.display = 'flex';
+    document.querySelector('.quiz-progress-wrap').style.display = 'flex';
+    renderQuestion();
+  }
+
+  // Init quiz
+  renderQuestion();
+</script>
+</body>
+</html>
